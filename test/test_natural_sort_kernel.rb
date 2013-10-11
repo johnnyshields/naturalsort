@@ -8,7 +8,7 @@ class TestEnum
   end
 end
 
-class TestNaturalSortKernel < Test::Unit::TestCase
+class TestNaturalSortKernel < Minitest::Test
   
   def test_empty
     assert_equal(['', ''], ['', ''].natural_sort)
@@ -41,39 +41,39 @@ class TestNaturalSortKernel < Test::Unit::TestCase
   end
   
     def test_identical_simple
-      assert_equal(['x', 'x'], ['x', 'x'].natural_sort)
+      assert_equal(%w(x x), %w(x x).natural_sort)
     end
 
     def test_identical_two_groups
-      assert_equal(['x1', 'x1'], ['x1', 'x1'].natural_sort)
+      assert_equal(%w(x1 x1), %w(x1 x1).natural_sort)
     end
 
     def test_ordered_simple
-      assert_equal(['x', 'y'], ['x', 'y'].natural_sort)
+      assert_equal(%w(x y), %w(x y).natural_sort)
     end
 
     def test_ordered_simple_start_backwards
-      assert_equal(['x', 'y'], ['y', 'x'].natural_sort)
+      assert_equal(%w(x y), %w(y x).natural_sort)
     end
 
     def test_ordered_two_groups
-      assert_equal(['x1', 'x2'], ['x1', 'x2'].natural_sort)
+      assert_equal(%w(x1 x2), %w(x1 x2).natural_sort)
     end
 
     def test_ordered_two_groups_start_backwards
-      assert_equal(['x1', 'x2'], ['x2', 'x1'].natural_sort)
+      assert_equal(%w(x1 x2), %w(x2 x1).natural_sort)
     end
 
     def test_ordered_two_groups_separated
-      assert_equal(['x_1', 'x_2'], ['x_2', 'x_1'].natural_sort)
+      assert_equal(%w(x_1 x_2), %w(x_2 x_1).natural_sort)
     end
 
     def test_ordered_two_groups_separated_different_distances
-      assert_equal(['x_1', 'x__2'], ['x__2', 'x_1'].natural_sort)
+      assert_equal(%w(x_1 x__2), %w(x__2 x_1).natural_sort)
     end
 
     def test_ordered_two_groups_separated_different_distances_swapped
-      assert_equal(['x__1', 'x_2'], ['x_2', 'x__1'].natural_sort)
+      assert_equal(%w(x__1 x_2), %w(x_2 x__1).natural_sort)
     end
 
     def test_three_groups
@@ -90,17 +90,17 @@ class TestNaturalSortKernel < Test::Unit::TestCase
     
     def test_multiple_string_number
       # x2-g8 < x2-y7 < x2-y08 < x8-y8
-      assert_equal ['x2-g8', 'x2-y7', 'x2-y08', 'x8-y8'], ['x2-y08', 'x8-y8', 'x2-y7', 'x2-g8'].natural_sort
+      assert_equal %w(x2-g8 x2-y7 x2-y08 x8-y8), %w(x2-y08 x8-y8 x2-y7 x2-g8).natural_sort
     end
     
     # same as test_multiple_string_number but first number has (sometimes) leading zero
     def test_multiple_string_number_2
       # x2-g8 < x2-y7 < x2-y08 < x8-y8
-      assert_equal ['x02-g8', 'x2-y7', 'x02-y08', 'x8-y8'], ['x02-y08', 'x8-y8', 'x2-y7', 'x02-g8'].natural_sort
+      assert_equal %w(x02-g8 x2-y7 x02-y08 x8-y8), %w(x02-y08 x8-y8 x2-y7 x02-g8).natural_sort
     end
     
     def test_filename
-      assert_equal ["img1.png", "img2.png", "img10.png", "img12.png"], ["img12.png", "img10.png", "img2.png", "img1.png"].natural_sort
+      assert_equal %w(img1.png img2.png img10.png img12.png), %w(img12.png img10.png img2.png img1.png).natural_sort
     end
     
     def test_complex

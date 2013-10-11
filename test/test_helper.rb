@@ -1,4 +1,5 @@
-require 'test/unit'
+gem 'minitest'
+require 'minitest/autorun'
 
 module NaturalSort
   Base = ['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D']
