@@ -14,6 +14,7 @@
 * Documentation: Convert all code documentation to TomDoc format
 * Admin: Remove rdoc generator which was not working
 * Admin: Add files .gitignore, Gemfile, gemspec, and cleanup Rakefile
+* Admin: Add Travis and CodeClimate
 * Admin: Migrate to Github
 
 ## 1.1.1 - 2010-07-21

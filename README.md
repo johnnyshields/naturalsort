@@ -1,5 +1,8 @@
 # NaturalSort
 
+[![Build Status](https://secure.travis-ci.org/johnnyshields/naturalsort.png?branch=master)](http://travis-ci.org/johnnyshields/naturalsort)
+[![Code Climate](https://codeclimate.com/github/johnnyshields/naturalsort.png)](https://codeclimate.com/github/johnnyshields/naturalsort)
+
 NaturalSort is a simple library which implements a natural, human-friendly alphanumeric sort in Ruby.
 
 #### Fork from RubyForge-hosted NaturalSort gem
