@@ -5,7 +5,7 @@ require 'natural_sort/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'naturalsort'
-  spec.version       = NaturalSort::VERSION
+  spec.version       = NaturalSort::Version::VERSION
   spec.authors       = ['Benjamin Francisoud']
   spec.email         = ['pub.cog@gmail.com']
   spec.summary       = %q{NaturalSort is a simple library which implements a natural, human-friendly alphanumeric sort in Ruby}

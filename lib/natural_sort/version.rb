@@ -1,3 +1,5 @@
 module NaturalSort
-  VERSION = '1.2.0'
+  module Version
+    VERSION = '1.2.0'
+  end
 end
