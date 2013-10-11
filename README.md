@@ -38,36 +38,77 @@ In your `Gemfile`:
 gem 'naturalsort'
 ```
 
+or to optionally extend Ruby native objects:
+
+```ruby
+gem 'naturalsort', :require => 'natural_sort_kernel'
+```
+
 #### From Command Line
 
 ```cmd
 $ gem install naturalsort
 ```
 
-## Synopsis
+## Usage
 
-### Usage Pattern #1 - Add to your ruby default objects
-Add natural sort methods to ruby default object (Array, Hash, etc...)
+#### Extend Ruby native enumerable objects
+
+`require 'natural_sort_kernel'` adds `natural_sort` methods to all native Ruby enumerable objects (Array, Hash, etc...)
 
 ```ruby
    require 'natural_sort_kernel'
 
    sorted = %w(a b c A B C).natural_sort
-   ...
 ```
 
-### Usage Pattern #2  - Use only one method
+#### Use as a module function
 
 ```ruby
-   require 'natural_sort'
+   require 'natural_sort'  # unless using Bundler
 
-   sorted = NaturalSort::sort %w(a b c d A B C D)
+   sorted = NaturalSort.sort %w(a b c d A B C D)
+```
+
+#### Use comparator function as a standalone
+
+Adds `natural_sort` methods to Ruby native enumerable objects (Array, Hash, etc...)
+
+```ruby
+   person_1 = Person.new('Moe')
+   person_2 = Person.new('Larry')
+   person_3 = Person.new('Curly')
+
+   [person_1, person_2, person_3].sort{|a,b| NaturalSort.comparator(a.name, b.name)}  #=> [person_3, person_2, person_1]
+
+   sorted = %w(a b c A B C).natural_sort
+```
+
+#### Include into your own objects
+
+Can be used to add `#natural_sort` method to on any enumerable object or any object which implements `#to_a`
+
+```ruby
+   class TodoList < Array
+     include NaturalSort
+   end
+
+   todo_list = TodoList.new
+   todo_list << 'Wash car'
+   todo_list << 'Water plants'
+   todo_list << 'Feed dog'
+
+   todo_list.natural_sort  #=> ['Feed dog', 'Wash car', 'Water plants']
 ```
 
 ## Authors
 
 * [Benjamin Francisoud](http://www.google.com/profiles/benjamin.francisoud)
 * [Johnny Shields](http://github.com/johnnyshields) (version 1.2.0+)
+
+## Contributing
+
+Fork -> Patch -> Spec -> Push -> Pull Request
 
 ## Related Links
 

@@ -35,7 +35,7 @@ module NaturalSort::Engine
     #
     # Examples
     #
-    #   [obj1, obj2].sort{|a,b| NaturalSort.comparator(a.name, b.name)}
+    #   [person1, person2, person3].sort{|a,b| NaturalSort.comparator(a.name, b.name)}
     def comparator(a, b)
       sa, sb = a.to_s, b.to_s
       if (sa.downcase <=> sb.downcase) == 0 then sa <=> sb
