@@ -16,7 +16,7 @@ end
 # Test without include
 class TestNaturalSortSelf < Minitest::Test
   def test_self
-    assert_equal TestHelper::BaseSorted, NaturalSort::sort(TestHelper::Base)
+    assert_equal TestHelper::BaseSorted, NaturalSort.sort(TestHelper::Base)
   end
 end
 
