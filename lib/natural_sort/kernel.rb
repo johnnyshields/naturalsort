@@ -53,7 +53,7 @@ if defined?(Set)
 end
 
 class Hash
-  # Add NaturalSort methods.
+  # Add #natural_sort method to Hash class.
   #
   # Examples
   #
