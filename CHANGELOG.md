@@ -3,6 +3,9 @@
 ## 1.2.0 - 2013-10-10
 
 * DEPRECATION: deprecate NaturalSort.naturalsort and replace with NaturalSort.sort
+* Use Array(object) instead of object.to_a for implicit Array conversion
+* Remove unused private instance methods which were aliased to class methods
+* Make regexp objects as module constants
 * Refactor directory/require structure to match conventions used in other gems
 * Kernel: Only include into Set if Set is defined
 * Kernel: Range#natural_sort is an alias to Range#to_a
