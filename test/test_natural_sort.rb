@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/../lib/natural_sort.rb'
 class MyClass
   include NaturalSort
   
-  def initialize(array = TestHelper::Base)
+  def initialize(array = TestHelper::SimpleUnsorted)
     @array = array
   end
   
@@ -16,7 +16,7 @@ end
 # Test without include
 class TestNaturalSortSelf < Minitest::Test
   def test_self
-    assert_equal TestHelper::BaseSorted, NaturalSort.sort(TestHelper::Base)
+    assert_equal TestHelper::SimpleSorted, NaturalSort.sort(TestHelper::SimpleUnsorted)
   end
 end
 
@@ -30,7 +30,7 @@ class TestNaturalSort < Minitest::Test
   
   def test_case_sensitive
     sorted = @obj.natural_sort
-    assert_equal TestHelper::BaseSorted, sorted
+    assert_equal TestHelper::SimpleSorted, sorted
   end
   
   def test_mixed

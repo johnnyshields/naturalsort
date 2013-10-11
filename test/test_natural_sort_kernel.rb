@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/../lib/natural_sort_kernel.rb'
 class TestEnum
   include Enumerable
   def to_a
-    TestHelper::Base
+    TestHelper::SimpleUnsorted
   end
 end
 
@@ -16,11 +16,11 @@ class TestNaturalSortKernel < Minitest::Test
   
   def test_enum
     enum = TestEnum.new
-    assert_equal TestHelper::BaseSorted, enum.natural_sort
+    assert_equal TestHelper::SimpleSorted, enum.natural_sort
   end
   
   def test_array
-    assert_equal TestHelper::BaseSorted, TestHelper::Base.natural_sort
+    assert_equal TestHelper::SimpleSorted, TestHelper::SimpleUnsorted.natural_sort
   end
   
   def test_range
@@ -29,8 +29,8 @@ class TestNaturalSortKernel < Minitest::Test
   end
   
   def test_set
-    set = Set.new TestHelper::Base
-    assert_equal TestHelper::BaseSorted, set.natural_sort
+    set = Set.new TestHelper::SimpleUnsorted
+    assert_equal TestHelper::SimpleSorted, set.natural_sort
   end
   
   def test_hash
@@ -82,7 +82,8 @@ class TestNaturalSortKernel < Minitest::Test
         ['hello world', 'hello world 2', 'hello 2 world'].natural_sort
       )
     end
-    
+
+    # TODO: fix test below
     def test_decimal
       # 1.001 < 1.002 < 1.010 < 1.02 < 1.1 < 1.3
       # assert_equal ['1.001', '1.002', '1.010', '1.02', '1.1', '1.3'], ['1.1', '1.001', '1.002', '1.010', '1.02', '1.3'].natural_sort, "FIXME this test doesn't pass and need to be fix"
@@ -104,6 +105,6 @@ class TestNaturalSortKernel < Minitest::Test
     end
     
     def test_complex
-      assert_equal TestHelper::ComplexSorted, TestHelper::Complex.natural_sort
+      assert_equal TestHelper::ComplexSorted, TestHelper::ComplexUnsorted.natural_sort
     end
 end
