@@ -2,13 +2,15 @@
 
 ## 1.2.0 - 2013-10-10
 
-* DEPRECATION: deprecate NaturalSort::naturalsort and replace with NaturalSort::sort
-* Kernel should only include into Set if Set is defined
-* Kernel Range#natural_sort is an alias to Range#to_a
-* Upgrade tests to use Minitest gem
-* Improve test readability by using %w() syntax for arrays
-* Migrate to Github. Add .gitignore, Gemfile, gemspec, and cleanup Rakefile
-* Remove rdoc generator which was not working
+* DEPRECATION: deprecate NaturalSort.naturalsort and replace with NaturalSort.sort
+* Refactor directory/require structure to match conventions used in other gems
+* Kernel: Only include into Set if Set is defined
+* Kernel: Range#natural_sort is an alias to Range#to_a
+* Test: Upgrade to use Minitest gem
+* Test: Improve readability by using %w() syntax for arrays
+* Admin: Remove rdoc generator which was not working
+* Admin: Add .gitignore, Gemfile, gemspec, and cleanup Rakefile
+* Admin: Migrate to Github
 
 ## 1.1.1 - 2010-07-21
 
