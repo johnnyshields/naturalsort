@@ -4,6 +4,6 @@ require File.dirname(__FILE__) + '/../lib/natural_sort.rb'
 # Test without include
 class TestNaturalSortAlone < Minitest::Test
   def test_alone
-    assert_equal NaturalSort::BaseSorted, NaturalSort::naturalsort(NaturalSort::Base)
+    assert_equal NaturalSort::BaseSorted, NaturalSort::sort(NaturalSort::Base)
   end
 end

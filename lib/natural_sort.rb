@@ -1,36 +1,48 @@
 # Sort elements in a natural / alphabetical / human friendly order.
 #     require 'natural_sort'
 #     
-#     NaturalSort::naturalsort ['a1', 'a12', 'a2']   #=> ['a1', 'a2', 'a12']
+#     NaturalSort::sort ['a1', 'a12', 'a2']   #=> ['a1', 'a2', 'a12']
 # or
 #     require 'natural_sort_kernel'
 #     
-#     ['a', 'b', 'A', 'B'].natural_sort              #=> ['A', 'a', 'B', 'b']
+#     ['a', 'b', 'A', 'B'].natural_sort         #=> ['A', 'a', 'B', 'b']
 module NaturalSort
-  VERSION = '1.1.1'
   
   # call-seq:
-  #    NaturalSort::naturalsort(object)                     => array
+  #    NaturalSort::sort(object)                #=> array
   # 
   # Static method to sort.
   # 
   # *Usage*
-  #     NaturalSort::naturalsort ['a1', 'a12', 'a2']     #=> ['a1', 'a2', 'a12']
+  #     NaturalSort::sort ['a1', 'a12', 'a2']   #=> ['a1', 'a2', 'a12']
   # 
   # <tt>object</tt> can by any object that has to_a method.
-  def self.naturalsort(object)
+  def self.sort(object)
     sorted = object.to_a.sort do |a,b|
-      sa, sb = a.to_s, b.to_s
-      if ((sa.downcase <=> sb.downcase) == 0) then sa <=> sb
-      else
-        na, nb = check_regexp(sa, sb)
-        na <=> nb
-      end
+      self.comparator(a,b)
     end
   end
-  
+
+  def self.naturalsort(object)
+    warn('NaturalSort.naturalsort is deprecated and will be removed. Use NaturalSort.sort instead')
+    self.sort(object)
+  end
+
   # call-seq:
-  #    object.natural_sort                     => array
+  #    NaturalSort::comparator(a, b)     #=> 0, 1, or -1
+  #
+  # Comparator function for sort method which can be used
+  def self.comparator(a, b)
+    sa, sb = a.to_s, b.to_s
+    if (sa.downcase <=> sb.downcase) == 0 then sa <=> sb
+    else
+      na, nb = check_regexp(sa, sb)
+      na <=> nb
+    end
+  end
+
+  # call-seq:
+  #    object.natural_sort          #=> array
   # 
   # Main method to sort (other are just aliases).
   # 
@@ -45,7 +57,7 @@ module NaturalSort
   # See <tt>natural_sort_kernel.rb</tt> to add natural sort methods to default ruby objects.
   # Enumerable , Array, Range, Set, Hash
   def natural_sort
-    NaturalSort::naturalsort(to_a)
+    NaturalSort::sort(to_a)
   end
   
   private
@@ -58,8 +70,7 @@ module NaturalSort
     ret = ["",""]
     numeric = /(\d+)/
     while (it < [ma.size,mb.size].min) and (equal==0) 
-      if (ma[it] and mb[it]) and (ma[it][1] and mb[it][1]) \
-         and (numeric.match ma[it][0] and numeric.match mb[it][0])
+      if (ma[it] and mb[it]) and (ma[it][1] and mb[it][1]) and (numeric.match ma[it][0] and numeric.match mb[it][0])
         l = [ma[it][2].size,mb[it][2].size].max
         ret = [format(ma[it], l), format(mb[it], l)]
       else 
@@ -87,16 +98,16 @@ module NaturalSort
   
   # return an array with
   # rgpx  matchdata on str
-  def self.multireg rgpx, str
+  def self.multireg(rgpx, str)
     result = []
-    while rgpx.match str
+    while rgpx.match(str)
         result.push rgpx.match(str)
         str = rgpx.match(str).post_match
     end
     result
   end
     
-  def multireg rgpx, str
+  def multireg(rgpx, str)
     NaturalSort::multireg(rgpx, str)
   end
 end
