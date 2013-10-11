@@ -2,17 +2,18 @@
 
 ## 1.2.0 - 2013-10-10
 
-* DEPRECATION: deprecate NaturalSort.naturalsort and replace with NaturalSort.sort
-* Use Array(object) instead of object.to_a for implicit Array conversion
+* DEPRECATION: deprecate `NaturalSort.naturalsort` and replace with `NaturalSort.sort`
+* Use `Array(object)` instead of `object.to_a` for implicit Array conversion
 * Remove unused private instance methods which were aliased to class methods
 * Make regexp objects as module constants
-* Refactor directory/require structure to match conventions used in other gems
-* Kernel: Only include into Set if Set is defined
-* Kernel: Range#natural_sort is an alias to Range#to_a
+* Reorganize directory/require structure to match conventions used in other gems. Core sorting functions are moved to new `NaturalSort::Engine` module.
+* Kernel: Only include into `Set` if Set is defined
+* Kernel: `Range#natural_sort` is now an alias to `Range#to_a`
 * Test: Upgrade to use Minitest gem
-* Test: Improve readability by using %w() syntax for arrays
+* Test: Improve readability by using `%w()` syntax for arrays
+* Documentation: Convert all code documentation to TomDoc format
 * Admin: Remove rdoc generator which was not working
-* Admin: Add .gitignore, Gemfile, gemspec, and cleanup Rakefile
+* Admin: Add files .gitignore, Gemfile, gemspec, and cleanup Rakefile
 * Admin: Migrate to Github
 
 ## 1.1.1 - 2010-07-21
@@ -23,15 +24,19 @@
 * Adding contribution from Sobe http://pastie.caboo.se/139803 (thanks mate)
 * Sort complex text list (see test_natural_sort_kernel.rb:107))
 * Fix more complex [string][number] pattern like:
-   * ["x2-y08", "x2-g8", "x2-y7", "x8-y8"].natural_sort => ["x2-g8", "x2-y7", "x2-y08", "x8-y8"]
-   * ["x02-y08", "x02-g8", "x2-y7", "x8-y8"].natural_sort => ["x02-g8", "x2-y7", "x02-y08", "x8-y8"]
+   ```ruby
+   ["x2-y08", "x2-g8", "x2-y7", "x8-y8"].natural_sort => ["x2-g8", "x2-y7", "x2-y08", "x8-y8"]
+   ["x02-y08", "x02-g8", "x2-y7", "x8-y8"].natural_sort => ["x02-g8", "x2-y7", "x02-y08", "x8-y8"]
+   ```
 * Fix bug in Range ordering:
-   * (1..21).natural_sort => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+   ```ruby
+   (1..21).natural_sort => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+   ```
 
 ## 1.1.0 - 2008-01-08
 
 * Improve documentation to get better google results
-* Remove alias methods: <tt>sort_natural, sort_alpha, alpha_sort, sort_alphabetical, alphabetical_sort, sort_alphanum, alphanum_sort</tt>
+* Remove alias methods: `sort_natural`, `sort_alpha`, `alpha_sort`, `sort_alphabetical`, `alphabetical_sort`, `sort_alphanum`, `alphanum_sort`
 
 ## 1.0.1 - 2007-12-18
 
