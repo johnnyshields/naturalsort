@@ -1,7 +1,7 @@
 gem 'minitest'
 require 'minitest/autorun'
 
-module NaturalSort
+module TestHelper
   Base = ['a', 'b', 'c', 'd', 'A', 'B', 'C', 'D']
   BaseSorted = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd']
   

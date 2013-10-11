@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/../lib/natural_sort_kernel.rb'
 class TestEnum
   include Enumerable
   def to_a
-    NaturalSort::Base
+    TestHelper::Base
   end
 end
 
@@ -16,11 +16,11 @@ class TestNaturalSortKernel < Minitest::Test
   
   def test_enum
     enum = TestEnum.new
-    assert_equal NaturalSort::BaseSorted, enum.natural_sort
+    assert_equal TestHelper::BaseSorted, enum.natural_sort
   end
   
   def test_array
-    assert_equal NaturalSort::BaseSorted, NaturalSort::Base.natural_sort
+    assert_equal TestHelper::BaseSorted, TestHelper::Base.natural_sort
   end
   
   def test_range
@@ -29,8 +29,8 @@ class TestNaturalSortKernel < Minitest::Test
   end
   
   def test_set
-    set = Set.new NaturalSort::Base
-    assert_equal NaturalSort::BaseSorted, set.natural_sort
+    set = Set.new TestHelper::Base
+    assert_equal TestHelper::BaseSorted, set.natural_sort
   end
   
   def test_hash
@@ -104,6 +104,6 @@ class TestNaturalSortKernel < Minitest::Test
     end
     
     def test_complex
-      assert_equal NaturalSort::ComplexSorted, NaturalSort::Complex.natural_sort
+      assert_equal TestHelper::ComplexSorted, TestHelper::Complex.natural_sort
     end
 end
