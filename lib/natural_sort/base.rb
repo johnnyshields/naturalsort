@@ -33,7 +33,7 @@ module NaturalSort
     # Refer to NaturalSort::Engine.comparator
     def_delegator :'NaturalSort::Engine', :comparator
 
-    # Deprecated alias to NaturalSort.sort. Was deprecated in version 1.2.0.
+    # Deprecated: Alias to NaturalSort.sort. Was deprecated in version 1.2.0.
     # To be removed in version 2.0.0 (according to semver)
     #
     # object - the object to sort, which must either be an Enumerable or implement #to_a to be meaningful.
