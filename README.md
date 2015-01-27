@@ -5,12 +5,6 @@
 
 NaturalSort is a simple library which implements a natural, human-friendly alphanumeric sort in Ruby.
 
-#### Fork from RubyForge-hosted NaturalSort gem
-
-This Github repo `johnyshields/naturalsort` is an update of the Benjamin Francisoud's original NaturalSort gem,
-hosted on RubyForge at http://rubyforge.org/projects/naturalsort. It has been forked from version 1.1.1
-which was released on 2010-07-21. The first new release from this Github repo is version 1.2.0.
-
 ## Examples
 
 ```ruby
