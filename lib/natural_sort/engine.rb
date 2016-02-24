@@ -51,7 +51,7 @@ module NaturalSort::Engine
       ma, mb = multireg(REGEXP,sa), multireg(REGEXP,sb)
       it = 0
       equal = 0
-      ret = ['', '']
+      ret = [sa, sb]
       while (it < [ma.size,mb.size].min) and (equal==0)
         if (ma[it] and mb[it]) and (ma[it][1] and mb[it][1]) and (NUMERIC.match ma[it][0] and NUMERIC.match mb[it][0])
           l = [ma[it][2].size,mb[it][2].size].max
