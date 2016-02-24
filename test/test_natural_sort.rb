@@ -3,11 +3,11 @@ require File.dirname(__FILE__) + '/../lib/natural_sort.rb'
 
 class MyClass
   include NaturalSort
-  
+
   def initialize(array = TestHelper::SimpleUnsorted)
     @array = array
   end
-  
+
   def to_a
     @array
   end
@@ -23,21 +23,21 @@ end
 # Test using include
 class TestNaturalSort < Minitest::Test
   include NaturalSort
-  
+
   def setup
     @obj = MyClass.new
   end
-  
+
   def test_case_sensitive
     sorted = @obj.natural_sort
     assert_equal TestHelper::SimpleSorted, sorted
   end
-  
+
   def test_mixed
     obj = MyClass.new %w(a1 a12 A11 a2 a10 A3 a21 A29)
     assert_equal %w(a1 a2 A3 a10 A11 a12 a21 A29), obj.natural_sort
   end
-  
+
   def test_numbers
     obj = MyClass.new %w(a1 a12 a11 a2 a10 a3 a21 a29)
     assert_equal %w(a1 a2 a3 a10 a11 a12 a21 a29), obj.natural_sort
@@ -51,5 +51,10 @@ class TestNaturalSort < Minitest::Test
   def test_number_leading_zero
     obj = MyClass.new %w(A001 A08 A007 A003 A011 A20 A200)
     assert_equal %w(A001 A003 A007 A08 A011 A20 A200), obj.natural_sort
+  end
+
+  def test_empty_strings
+    obj = MyClass.new ['A', 'B', 'C', '', 'A', 'B', 'C']
+    assert_equal ['', 'A', 'A', 'B', 'B', 'C', 'C'], obj.natural_sort
   end
 end
