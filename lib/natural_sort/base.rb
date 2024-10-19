@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Public: The public interface for NaturalSort module
 # For method descriptions refer to NaturalSort::Engine
 #

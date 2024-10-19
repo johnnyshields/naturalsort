@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0 - 2024-10-20
+
+* Remove `NaturalSort::Kernel` module.
+* Drop support for Ruby 2.7 and prior.
+* Add Github Actions and remove Travis CI.
+
 ## 1.2.0 - 2013-10-10
 
 * DEPRECATION: deprecate `NaturalSort.naturalsort` and replace with `NaturalSort.sort`

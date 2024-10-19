@@ -1,6 +1,9 @@
 gem 'minitest'
 require 'minitest/autorun'
 
+# Ruby 3.1 tests fail if Set is not explicitly loaded.
+require 'set'
+
 module TestHelper
   SimpleUnsorted = %w(a b c d A B C D)
   SimpleSorted   = %w(A a B b C c D d)

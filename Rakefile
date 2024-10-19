@@ -5,7 +5,7 @@ require 'rubygems'
 require './lib/natural_sort.rb'
 require 'rake/testtask'
 
-task :default => :test
+task default: :test
 
 Rake::TestTask.new do |t|
   t.libs << 'test'

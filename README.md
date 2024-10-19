@@ -1,18 +1,15 @@
 # NaturalSort
 
-[![Build Status](https://secure.travis-ci.org/johnnyshields/naturalsort.png?branch=master)](http://travis-ci.org/johnnyshields/naturalsort)
-[![Code Climate](https://codeclimate.com/github/johnnyshields/naturalsort.png)](https://codeclimate.com/github/johnnyshields/naturalsort)
-
 NaturalSort is a simple library which implements a natural, human-friendly alphanumeric sort in Ruby.
 
 ## Examples
 
 ```ruby
-   %w(a1 a11 a12 a2 a21).natural_sort  #=>  %w(a1 a2 a11 a12 a21)
-   %w(a b c A B C).natural_sort        #=>  %w(A a B b C c)
-   %w(x__2 x_1).natural_sort           #=>  %w(x_1 x__2)
-   %w(x2-y08 x2-g8 x2-y7 x8-y8).natural_sort    #=>  %w(x2-g8 x2-y7 x2-y08 x8-y8)
-   %w(x02-y08 x02-g8 x2-y7 x8-y8).natural_sort  #=>  %w(x02-g8 x2-y7 x02-y08 x8-y8)
+   %w[a1 a11 a12 a2 a21].natural_sort #=> %w[a1 a2 a11 a12 a21]
+   %w[a b c A B C].natural_sort       #=> %w[A a B b C c]
+   %w[x__2 x_1].natural_sort          #=> %w[x_1 x__2]
+   %w[x2-y08 x2-g8 x2-y7 x8-y8].natural_sort   #=> %w[x2-g8 x2-y7 x2-y08 x8-y8]
+   %w[x02-y08 x02-g8 x2-y7 x8-y8].natural_sort #=> %w[x02-g8 x2-y7 x02-y08 x8-y8]
 ```
 
 ## Features
@@ -35,7 +32,7 @@ gem 'naturalsort'
 or to optionally extend Ruby native objects:
 
 ```ruby
-gem 'naturalsort', :require => 'natural_sort_kernel'
+gem 'naturalsort', require: 'natural_sort_kernel'
 ```
 
 #### From Command Line
@@ -53,7 +50,7 @@ $ gem install naturalsort
 ```ruby
    require 'natural_sort_kernel'
 
-   sorted = %w(a b c A B C).natural_sort
+   %w[a b c A B C].natural_sort
 ```
 
 #### Use as a module function
@@ -61,7 +58,7 @@ $ gem install naturalsort
 ```ruby
    require 'natural_sort'  # unless using Bundler
 
-   sorted = NaturalSort.sort %w(a b c d A B C D)
+   NaturalSort.sort %w[a b c d A B C D]
 ```
 
 #### Use comparator function as a standalone
@@ -75,7 +72,7 @@ Adds `natural_sort` methods to Ruby native enumerable objects (Array, Hash, etc.
 
    [person_1, person_2, person_3].sort{|a,b| NaturalSort.comparator(a.name, b.name)}  #=> [person_3, person_2, person_1]
 
-   sorted = %w(a b c A B C).natural_sort
+   %w[a b c A B C].natural_sort
 ```
 
 #### Include into your own objects
@@ -92,7 +89,7 @@ Can be used to add `#natural_sort` method to on any enumerable object or any obj
    todo_list << 'Water plants'
    todo_list << 'Feed dog'
 
-   todo_list.natural_sort  #=> ['Feed dog', 'Wash car', 'Water plants']
+   todo_list.natural_sort #=> ['Feed dog', 'Wash car', 'Water plants']
 ```
 
 ## Authors
