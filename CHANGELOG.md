@@ -5,6 +5,7 @@
 * Remove `NaturalSort::Kernel` module.
 * Drop support for Ruby 2.7 and prior.
 * Add Github Actions and remove Travis CI.
+* Fixes issue where blank string breaks sorting.
 
 ## 1.2.0 - 2013-10-10
 
