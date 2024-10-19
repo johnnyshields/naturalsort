@@ -1,4 +1,5 @@
 gem 'minitest'
+require 'set'
 require 'minitest/autorun'
 
 module TestHelper
