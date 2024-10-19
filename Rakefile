@@ -1,12 +1,13 @@
 #!/usr/bin/env rake
 # -*- mode: ruby -*-
 
-require 'bundler/gem_tasks'
-require 'rspec/core/rake_task'
-require 'rubocop/rake_task'
+require 'rubygems'
+require './lib/natural_sort.rb'
+require 'rake/testtask'
 
-RuboCop::RakeTask.new(:rubocop)
+task default: :test
 
-RSpec::Core::RakeTask.new(:spec)
-
-task default: [:spec]
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.test_files = FileList['test/**/test_*.rb']
+end

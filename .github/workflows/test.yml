@@ -40,5 +40,5 @@ jobs:
 
       - name: test
         timeout-minutes: 10
-        run: bundle exec rake spec
+        run: bundle exec rake test
         continue-on-error: ${{ matrix.experimental }}
