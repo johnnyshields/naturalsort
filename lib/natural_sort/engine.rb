@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Internal: Singleton module which sorts elements in a natural,
 # human-friendly alphanumeric order.
 module NaturalSort::Engine

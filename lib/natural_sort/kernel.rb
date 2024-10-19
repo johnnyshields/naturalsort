@@ -1,11 +1,4 @@
-# Public: Adds #natural_sort instance method to Ruby Kernel enumerable objects.
-#
-# Examples
-#
-#   require 'natural_sort_kernel'
-#   defined?(NaturalSort::Kernel)      #=> true
-#   ['a', 'b', 'A', 'B'].natural_sort  #=> ['A', 'a', 'B', 'b']
-module NaturalSort::Kernel; end
+# frozen_string_literal: true
 
 module Enumerable
   # Add #natural_sort method to Enumerable module.

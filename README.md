@@ -1,8 +1,5 @@
 # NaturalSort
 
-[![Build Status](https://secure.travis-ci.org/johnnyshields/naturalsort.png?branch=master)](http://travis-ci.org/johnnyshields/naturalsort)
-[![Code Climate](https://codeclimate.com/github/johnnyshields/naturalsort.png)](https://codeclimate.com/github/johnnyshields/naturalsort)
-
 NaturalSort is a simple library which implements a natural, human-friendly alphanumeric sort in Ruby.
 
 ## Examples
@@ -35,7 +32,7 @@ gem 'naturalsort'
 or to optionally extend Ruby native objects:
 
 ```ruby
-gem 'naturalsort', :require => 'natural_sort_kernel'
+gem 'naturalsort', require: 'natural_sort_kernel'
 ```
 
 #### From Command Line
@@ -53,7 +50,7 @@ $ gem install naturalsort
 ```ruby
    require 'natural_sort_kernel'
 
-   sorted = %w(a b c A B C).natural_sort
+   %w[a b c A B C].natural_sort
 ```
 
 #### Use as a module function
@@ -61,7 +58,7 @@ $ gem install naturalsort
 ```ruby
    require 'natural_sort'  # unless using Bundler
 
-   sorted = NaturalSort.sort %w(a b c d A B C D)
+   NaturalSort.sort %w[a b c d A B C D]
 ```
 
 #### Use comparator function as a standalone
@@ -75,7 +72,7 @@ Adds `natural_sort` methods to Ruby native enumerable objects (Array, Hash, etc.
 
    [person_1, person_2, person_3].sort{|a,b| NaturalSort.comparator(a.name, b.name)}  #=> [person_3, person_2, person_1]
 
-   sorted = %w(a b c A B C).natural_sort
+   sorted = %w[a b c A B C].natural_sort
 ```
 
 #### Include into your own objects
